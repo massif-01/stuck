@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001 /* AppDelegate.swift */; };
+		A1000002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000002 /* SceneDelegate.swift */; };
+		A1000003 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000003 /* GameViewController.swift */; };
+		A1000004 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000004 /* GameScene.swift */; };
+		A1000005 /* StickFigureNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000005 /* StickFigureNode.swift */; };
+		A1000006 /* StickFigurePose.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000006 /* StickFigurePose.swift */; };
+		A1000007 /* PathEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000007 /* PathEngine.swift */; };
+		A1000008 /* BehaviorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000008 /* BehaviorState.swift */; };
+		A1000009 /* MBTI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000009 /* MBTI.swift */; };
+		A1000010 /* MBTIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000010 /* MBTIConfig.swift */; };
+		A1000011 /* WeightEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000011 /* WeightEngine.swift */; };
+		A1000012 /* GameStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000012 /* GameStorage.swift */; };
+		A1000013 /* PersonalityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000013 /* PersonalityService.swift */; };
+		A1000014 /* TimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000014 /* TimeService.swift */; };
+		A1000015 /* BatteryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000015 /* BatteryService.swift */; };
+		A1000016 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2000016 /* Assets.xcassets */; };
+		A1000017 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000017 /* WeatherService.swift */; };
+		A1000018 /* WeatherModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000018 /* WeatherModifiers.swift */; };
+		A1000019 /* HapticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000019 /* HapticService.swift */; };
+		A1000020 /* ScreenshotDiaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000020 /* ScreenshotDiaryService.swift */; };
+		A1000021 /* PersonalityDrift.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000021 /* PersonalityDrift.swift */; };
+		A1000022 /* AchievementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000022 /* AchievementService.swift */; };
+		A1000023 /* AchievementTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000023 /* AchievementTracker.swift */; };
+		A1000024 /* PastLifeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000024 /* PastLifeStore.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A3000001 /* Stuck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stuck.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A2000002 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A2000003 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		A2000004 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		A2000005 /* StickFigureNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickFigureNode.swift; sourceTree = "<group>"; };
+		A2000006 /* StickFigurePose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickFigurePose.swift; sourceTree = "<group>"; };
+		A2000007 /* PathEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathEngine.swift; sourceTree = "<group>"; };
+		A2000008 /* BehaviorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviorState.swift; sourceTree = "<group>"; };
+		A2000009 /* MBTI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTI.swift; sourceTree = "<group>"; };
+		A2000010 /* MBTIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTIConfig.swift; sourceTree = "<group>"; };
+		A2000011 /* WeightEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightEngine.swift; sourceTree = "<group>"; };
+		A2000012 /* GameStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStorage.swift; sourceTree = "<group>"; };
+		A2000013 /* PersonalityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalityService.swift; sourceTree = "<group>"; };
+		A2000014 /* TimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeService.swift; sourceTree = "<group>"; };
+		A2000015 /* BatteryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryService.swift; sourceTree = "<group>"; };
+		A2000016 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A2000017 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		A2000018 /* WeatherModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModifiers.swift; sourceTree = "<group>"; };
+		A2000019 /* HapticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticService.swift; sourceTree = "<group>"; };
+		A2000020 /* ScreenshotDiaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotDiaryService.swift; sourceTree = "<group>"; };
+		A2000021 /* PersonalityDrift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalityDrift.swift; sourceTree = "<group>"; };
+		A2000022 /* AchievementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementService.swift; sourceTree = "<group>"; };
+		A2000023 /* AchievementTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementTracker.swift; sourceTree = "<group>"; };
+		A2000024 /* PastLifeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastLifeStore.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A4000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A5000001 = {
+			isa = PBXGroup;
+			children = (
+				A5000002 /* Stuck */,
+				A5000010 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A5000010 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3000001 /* Stuck.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A5000002 /* Stuck */ = {
+			isa = PBXGroup;
+			children = (
+				A5000003 /* App */,
+				A5000004 /* Scene */,
+				A5000005 /* Character */,
+				A5000006 /* Behavior */,
+				A5000007 /* Weight */,
+				A5000008 /* Environment */,
+				A5000009 /* Persistence */,
+				A5000012 /* Haptic */,
+				A5000013 /* Screenshot */,
+				A5000014 /* Achievement */,
+				A2000016 /* Assets.xcassets */,
+			);
+			path = Stuck;
+			sourceTree = "<group>";
+		};
+		A5000012 /* Haptic */ = {
+			isa = PBXGroup;
+			children = (
+				A2000019 /* HapticService.swift */,
+			);
+			path = Haptic;
+			sourceTree = "<group>";
+		};
+		A5000013 /* Screenshot */ = {
+			isa = PBXGroup;
+			children = (
+				A2000020 /* ScreenshotDiaryService.swift */,
+			);
+			path = Screenshot;
+			sourceTree = "<group>";
+		};
+		A5000014 /* Achievement */ = {
+			isa = PBXGroup;
+			children = (
+				A2000022 /* AchievementService.swift */,
+				A2000023 /* AchievementTracker.swift */,
+			);
+			path = Achievement;
+			sourceTree = "<group>";
+		};
+		A5000003 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A2000001 /* AppDelegate.swift */,
+				A2000002 /* SceneDelegate.swift */,
+				A2000003 /* GameViewController.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A5000004 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				A2000004 /* GameScene.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		A5000005 /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				A2000005 /* StickFigureNode.swift */,
+				A2000006 /* StickFigurePose.swift */,
+			);
+			path = Character;
+			sourceTree = "<group>";
+		};
+		A5000006 /* Behavior */ = {
+			isa = PBXGroup;
+			children = (
+				A2000007 /* PathEngine.swift */,
+				A2000008 /* BehaviorState.swift */,
+			);
+			path = Behavior;
+			sourceTree = "<group>";
+		};
+		A5000007 /* Weight */ = {
+			isa = PBXGroup;
+			children = (
+				A2000009 /* MBTI.swift */,
+				A2000010 /* MBTIConfig.swift */,
+				A2000011 /* WeightEngine.swift */,
+				A2000018 /* WeatherModifiers.swift */,
+				A2000021 /* PersonalityDrift.swift */,
+			);
+			path = Weight;
+			sourceTree = "<group>";
+		};
+		A5000008 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				A2000014 /* TimeService.swift */,
+				A2000015 /* BatteryService.swift */,
+				A2000017 /* WeatherService.swift */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		A5000009 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				A2000012 /* GameStorage.swift */,
+				A2000013 /* PersonalityService.swift */,
+				A2000024 /* PastLifeStore.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A6000001 /* Stuck */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7000003 /* Build configuration list for PBXNativeTarget "Stuck" */;
+			buildPhases = (
+				A6000002 /* Sources */,
+				A4000001 /* Frameworks */,
+				A6000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Stuck;
+			productName = Stuck;
+			productReference = A3000001 /* Stuck.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A8000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = A7000001 /* Build configuration list for PBXProject "Stuck" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = A5000001;
+			productRefGroup = A5000010 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A6000001 /* Stuck */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A6000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000016 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A6000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000001 /* AppDelegate.swift in Sources */,
+				A1000002 /* SceneDelegate.swift in Sources */,
+				A1000003 /* GameViewController.swift in Sources */,
+				A1000004 /* GameScene.swift in Sources */,
+				A1000005 /* StickFigureNode.swift in Sources */,
+				A1000006 /* StickFigurePose.swift in Sources */,
+				A1000007 /* PathEngine.swift in Sources */,
+				A1000008 /* BehaviorState.swift in Sources */,
+				A1000009 /* MBTI.swift in Sources */,
+				A1000010 /* MBTIConfig.swift in Sources */,
+				A1000011 /* WeightEngine.swift in Sources */,
+				A1000012 /* GameStorage.swift in Sources */,
+				A1000013 /* PersonalityService.swift in Sources */,
+				A1000014 /* TimeService.swift in Sources */,
+				A1000015 /* BatteryService.swift in Sources */,
+				A1000017 /* WeatherService.swift in Sources */,
+				A1000018 /* WeatherModifiers.swift in Sources */,
+				A1000019 /* HapticService.swift in Sources */,
+				A1000020 /* ScreenshotDiaryService.swift in Sources */,
+				A1000021 /* PersonalityDrift.swift in Sources */,
+				A1000022 /* AchievementService.swift in Sources */,
+				A1000023 /* AchievementTracker.swift in Sources */,
+				A1000024 /* PastLifeStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A7000002 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A7000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A7000005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Stuck/Stuck.entitlements;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Stuck/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stuck.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A7000006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Stuck/Stuck.entitlements;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Stuck/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stuck.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A7000001 /* Build configuration list for PBXProject "Stuck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7000002 /* Debug */,
+				A7000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7000003 /* Build configuration list for PBXNativeTarget "Stuck" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7000005 /* Debug */,
+				A7000006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A8000001 /* Project object */;
+}
