@@ -1,28 +1,22 @@
 import SpriteKit
 
-/// 火柴人：6 段线段（躯干、四肢、头），程序化骨骼动画
+/// 火柴人（Antony74 风格）：12 顶点树、11 线段、椭圆头、加粗线条
 final class StickFigureNode: SKNode {
 
-    private let head = SKShapeNode()
-    private let torso = SKShapeNode()
-    private let leftArm = SKShapeNode()
-    private let rightArm = SKShapeNode()
-    private let leftLeg = SKShapeNode()
-    private let rightLeg = SKShapeNode()
+    /// 线段节点（共 11 段）
+    private var segments: [SKShapeNode] = []
+    private let headShape = SKShapeNode()
+    private var lastJoints: [CGPoint] = []
 
-    /// 线宽与颜色（低电量时变浅灰）
-    var lineWidth: CGFloat = 2 {
-        didSet { updateStrokeWidth() }
+    var lineWidth: CGFloat = 6 {
+        didSet { updateStroke() }
     }
     var strokeColor: UIColor = .black {
-        didSet { updateStrokeColor() }
+        didSet { updateStroke() }
     }
-
-    /// 速度倍率（电量、充电、性格影响）
     var speedMultiplier: CGFloat = 1.0
 
     private let segmentLength: CGFloat = 24
-    private var joints: [CGPoint] = []
 
     override init() {
         super.init()
@@ -35,73 +29,102 @@ final class StickFigureNode: SKNode {
     }
 
     private func setupSegments() {
-        [head, torso, leftArm, rightArm, leftLeg, rightLeg].forEach {
+        for _ in 0..<11 {
+            let s = SKShapeNode()
+            s.strokeColor = strokeColor
+            s.lineWidth = lineWidth
+            s.lineCap = .round
+            s.lineJoin = .round
+            addChild(s)
+            segments.append(s)
+        }
+        headShape.strokeColor = strokeColor
+        headShape.lineWidth = 1
+        headShape.fillColor = strokeColor
+        headShape.glowWidth = 0
+        addChild(headShape)
+        applyPose(.standing(pelvis: .zero, size: segmentLength))
+    }
+
+    private func updateStroke() {
+        segments.forEach {
             $0.strokeColor = strokeColor
             $0.lineWidth = lineWidth
-            $0.lineCap = .round
-            $0.lineJoin = .round
-            addChild($0)
         }
-        applyPose(.standing)
+        headShape.strokeColor = strokeColor
+        headShape.fillColor = strokeColor
     }
 
-    private func updateStrokeWidth() {
-        [head, torso, leftArm, rightArm, leftLeg, rightLeg].forEach {
-            $0.lineWidth = lineWidth
-        }
-    }
-
-    private func updateStrokeColor() {
-        [head, torso, leftArm, rightArm, leftLeg, rightLeg].forEach {
-            $0.strokeColor = strokeColor
-        }
-    }
-
-    /// 程序化绘制：根据关节点生成线段
+    /// 应用姿态（无插值）
     func applyPose(_ pose: StickFigurePose) {
-        joints = pose.joints
-        let j = joints
-
-        // 头：圆心
-        head.path = CGPath(ellipseIn: CGRect(
-            x: j[0].x - 6, y: j[0].y - 6,
-            width: 12, height: 12
-        ), transform: nil)
-
-        // 躯干：颈到髋
-        torso.path = linePath(from: j[0], to: j[1])
-
-        // 左臂：肩到左手
-        leftArm.path = linePath(from: j[2], to: j[3])
-        rightArm.path = linePath(from: j[2], to: j[4])
-
-        // 左腿：髋到左脚，右腿同理
-        leftLeg.path = linePath(from: j[1], to: j[5])
-        rightLeg.path = linePath(from: j[1], to: j[6])
+        let j = pose.joints()
+        lastJoints = j
+        render(j)
     }
 
-    private func linePath(from a: CGPoint, to b: CGPoint) -> CGPath {
-        let p = CGMutablePath()
-        p.move(to: a)
-        p.addLine(to: b)
-        return p
-    }
-
-    /// 动画到目标姿态（程序化补间）
-    func animateToPose(
-        _ target: StickFigurePose,
+    /// 姿态插值
+    func applyPoseWithInterpolation(
+        target: StickFigurePose,
         duration: TimeInterval,
         completion: (() -> Void)? = nil
     ) {
+        let startJoints = lastJoints.isEmpty ? target.joints() : lastJoints
+        let startPelvis = startJoints.count > 0 ? startJoints[0] : target.pelvis
+        let startPose = poseFromJoints(startJoints, pelvis: startPelvis, size: target.segmentLength)
         let actualDuration = duration / Double(speedMultiplier)
-        // 简化：直接应用目标姿态。完整版可用 SKAction 或自定义插值
-        run(.sequence([
-            .wait(forDuration: actualDuration),
-            .run { [weak self] in
-                self?.applyPose(target)
-                completion?()
-            }
-        ]))
-        applyPose(target)
+
+        let action = SKAction.customAction(withDuration: actualDuration) { [weak self] _, elapsed in
+            guard let self = self else { return }
+            var t = CGFloat(min(1, elapsed / actualDuration))
+            t = t * t * (3 - 2 * t)
+            let interp = StickFigurePose.lerp(from: startPose, to: target, t: t)
+            self.lastJoints = interp.joints()
+            self.render(self.lastJoints)
+        }
+        run(action) { completion?() }
+    }
+
+    private func poseFromJoints(_ j: [CGPoint], pelvis: CGPoint, size: CGFloat) -> StickFigurePose {
+        guard j.count >= 12 else { return .standing(pelvis: pelvis, size: size) }
+        func dir(parent: CGPoint, child: CGPoint) -> CGFloat { atan2(child.y - parent.y, child.x - parent.x) }
+        return StickFigurePose(pelvis: pelvis, segmentLength: size, headings: [
+            dir(parent: j[0], child: j[1]), dir(parent: j[0], child: j[2]),
+            dir(parent: j[1], child: j[3]), dir(parent: j[2], child: j[4]),
+            dir(parent: j[0], child: j[5]), dir(parent: j[5], child: j[6]),
+            dir(parent: j[6], child: j[7]),
+            dir(parent: j[6], child: j[8]), dir(parent: j[6], child: j[9]),
+            dir(parent: j[8], child: j[10]), dir(parent: j[9], child: j[11])
+        ])
+    }
+
+    private func render(_ j: [CGPoint]) {
+        guard j.count >= 12 else { return }
+
+        func line(_ a: CGPoint, _ b: CGPoint) -> CGPath {
+            let p = CGMutablePath()
+            p.move(to: a)
+            p.addLine(to: b)
+            return p
+        }
+
+        segments[0].path = line(j[0], j[1])
+        segments[1].path = line(j[0], j[2])
+        segments[2].path = line(j[1], j[3])
+        segments[3].path = line(j[2], j[4])
+        segments[4].path = line(j[0], j[5])
+        segments[5].path = line(j[5], j[6])
+        segments[6].path = line(j[6], j[7])
+        segments[7].path = line(j[6], j[8])
+        segments[8].path = line(j[6], j[9])
+        segments[9].path = line(j[8], j[10])
+        segments[10].path = line(j[9], j[11])
+
+        // 纯侧面：头部为圆（以 head 为中心，半径约为 segment 的 0.5）
+        let r = segmentLength * 0.5
+        headShape.path = CGPath(ellipseIn: CGRect(x: j[7].x - r, y: j[7].y - r, width: r * 2, height: r * 2), transform: nil)
+    }
+
+    func animateToPose(_ target: StickFigurePose, duration: TimeInterval, completion: (() -> Void)? = nil) {
+        applyPoseWithInterpolation(target: target, duration: duration, completion: completion)
     }
 }
